@@ -12,15 +12,19 @@ app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
 # Incluir routers
-app.include_router(usuarios.router, prefix="/usuarios")
-app.include_router(personas.router, prefix="/personas")
-app.include_router(categorias.router, prefix="/categorias")
-app.include_router(transacciones.router, prefix="/transacciones")
-app.include_router(presupuestos.router, prefix="/presupuestos")
+# Rutas implementadas (6-10)
 app.include_router(tipos_transacciones.router, prefix="/tipos-transacciones")
 app.include_router(estatus.router, prefix="/estatus")
+app.include_router(presupuestos.router, prefix="/presupuestos")
 app.include_router(tipos_pagos.router, prefix="/tipos-pagos")
 app.include_router(pagos_fijos.router, prefix="/pagos-fijos")
+
+# Rutas aún no implementadas (1-5)
+# app.include_router(usuarios.router, prefix="/usuarios")
+# app.include_router(personas.router, prefix="/personas")
+# app.include_router(categorias.router, prefix="/categorias")
+# app.include_router(transacciones.router, prefix="/transacciones")
+
 
 @app.get("/")
 def root():
