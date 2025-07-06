@@ -1,3 +1,27 @@
 from fastapi import FastAPI
+from app.database import Base, engine
+from app.routes import (
+    usuarios, personas, categorias, transacciones,
+    presupuestos, tipos_transacciones, estatus,
+    tipos_pagos, pagos_fijos
+)
 
 app = FastAPI()
+
+# Crear tablas automáticamente (solo al inicio)
+Base.metadata.create_all(bind=engine)
+
+# Incluir routers
+app.include_router(usuarios.router, prefix="/usuarios")
+app.include_router(personas.router, prefix="/personas")
+app.include_router(categorias.router, prefix="/categorias")
+app.include_router(transacciones.router, prefix="/transacciones")
+app.include_router(presupuestos.router, prefix="/presupuestos")
+app.include_router(tipos_transacciones.router, prefix="/tipos-transacciones")
+app.include_router(estatus.router, prefix="/estatus")
+app.include_router(tipos_pagos.router, prefix="/tipos-pagos")
+app.include_router(pagos_fijos.router, prefix="/pagos-fijos")
+
+@app.get("/")
+def root():
+    return {"mensaje": "Lana App API funcionando"}
