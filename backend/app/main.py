@@ -19,12 +19,11 @@ app.include_router(presupuestos.router, prefix="/presupuestos")
 app.include_router(tipos_pagos.router, prefix="/tipos-pagos")
 app.include_router(pagos_fijos.router, prefix="/pagos-fijos")
 
-# Rutas aún no implementadas (1-5)
+# Rutas implementadas (1-5)
 app.include_router(usuarios.router, prefix="/usuarios")
 app.include_router(personas.router, prefix="/personas")
 app.include_router(categorias.router, prefix="/categorias")
-# app.include_router(transacciones.router, prefix="/transacciones")
-
+app.include_router(transacciones.router, prefix="/transacciones")
 app.include_router(personas.router, prefix="/tipos_usuarios")
 
 
