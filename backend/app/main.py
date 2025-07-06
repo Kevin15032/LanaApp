@@ -3,7 +3,8 @@ from app.database import Base, engine
 from app.routes import (
     usuarios, personas, categorias, transacciones,
     presupuestos, tipos_transacciones, estatus,
-    tipos_pagos, pagos_fijos
+    tipos_pagos, pagos_fijos, tipos_usuarios,
+    estatus_envios
 )
 
 app = FastAPI()
@@ -24,7 +25,8 @@ app.include_router(usuarios.router, prefix="/usuarios")
 app.include_router(personas.router, prefix="/personas")
 app.include_router(categorias.router, prefix="/categorias")
 app.include_router(transacciones.router, prefix="/transacciones")
-app.include_router(personas.router, prefix="/tipos_usuarios")
+app.include_router(tipos_usuarios.router, prefix="/tipos_usuarios")
+app.include_router(estatus_envios.router, prefix="/estatus_envios")
 
 
 @app.get("/")
