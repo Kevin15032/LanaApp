@@ -4,7 +4,9 @@ from app.routes import (
     usuarios, personas, categorias, transacciones,
     presupuestos, tipos_transacciones, estatus,
     tipos_pagos, pagos_fijos, tipos_usuarios,
-    estatus_envios
+    estatus_envios, pagos, preferencias_notificaciones,
+    notificaciones, notificaciones_medios,
+    tipos_notificaciones
 )
 
 app = FastAPI()
@@ -27,6 +29,15 @@ app.include_router(categorias.router, prefix="/categorias")
 app.include_router(transacciones.router, prefix="/transacciones")
 app.include_router(tipos_usuarios.router, prefix="/tipos_usuarios")
 app.include_router(estatus_envios.router, prefix="/estatus_envios")
+
+# Rutas implementadas (11 - 15)
+app.include_router(pagos.router, prefix="/pagos")
+app.include_router(preferencias_notificaciones.router, prefix="/preferencias_notificaciones")
+app.include_router(notificaciones.router, prefix="/notificaciones")
+app.include_router(notificaciones_medios.router, prefix="/notificaciones_medios")
+app.include_router(tipos_notificaciones.router, prefix="/tipos_notificaciones")
+
+
 
 
 @app.get("/")
