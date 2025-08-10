@@ -15,10 +15,8 @@ class UsuarioOut(UsuarioBase):
         orm_mode = True
 
 class LoginRequest(BaseModel):
-    correo: str
     contrasena: str
 
 class LoginResponse(BaseModel):
     id: int
-    correo: str
     mensaje: str

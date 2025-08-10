@@ -6,6 +6,5 @@ class Usuario(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     persona_id = Column(Integer, ForeignKey("personas.id"))
-    correo = Column(String(150), nullable=False)
     contrasena = Column(String(150), nullable=False)
     tipo_usuario_id = Column(Integer, ForeignKey("tipos_usuarios.id"))

@@ -56,6 +56,5 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Credenciales incorrectas")
     return LoginResponse(
         id=usuario.id,
-        correo=usuario.correo,
         mensaje="Inicio de sesión exitoso"
     )
